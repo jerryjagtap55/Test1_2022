@@ -19,7 +19,7 @@ const Login = () => {
 
         <Grid className="logInform">
             <Grid container xs={4} className="logInform" spacing={2} Width={600} minWidth={300} >
-                <Grid item sm={8}>
+                <Grid item sm={12}>
                     <h2>
                         Log in to your account
                     </h2>
@@ -28,10 +28,10 @@ const Login = () => {
                     <p>Welcome back! Please enter your details.</p>
                 </Grid>
                 <Grid item sm={12} className='marginauto'>
-                    <TextField fullWidth id="outlined-basic" size="small" label="Email" variant="outlined" placeholder="Please enter your email" required />
+                    <TextField fullWidth id="outlined-basic" size="small" label="Email" variant="outlined" placeholder="Please enter your email" />
                 </Grid>
                 <Grid item sm={12} className='marginauto'>
-                    <TextField label='Password' size="small" placeholder='Enter password' type='password' fullWidth required />
+                    <TextField label='Password' size="small" placeholder='Enter password' type='password' fullWidth />
                     
                 </Grid>
                 <Grid item sm={12} className='rememberstyle'>
@@ -55,7 +55,7 @@ const Login = () => {
 
                 <Grid item sm={12}>
                     <Button variant="outlined" fullWidth>
-                        <FcGoogle />
+                        <FcGoogle size={24}/>
                         &nbsp; Sign in with Google
                     </Button>
                 </Grid>

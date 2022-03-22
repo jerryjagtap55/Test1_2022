@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.css';
+// Put any other imports below so that CSS from your
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";

@@ -16,7 +16,7 @@ const SignUp = () => {
     return (
         <Grid className="logInform">
         <Grid container xs={4} className="logInform" spacing={2} Width={600} minWidth={300}>
-            <Grid item sm={8}>
+            <Grid item sm={12}>
                 <h2>
                 Create an account
                 </h2>
@@ -45,7 +45,7 @@ const SignUp = () => {
 
             <Grid item sm={12}>
                 <Button variant="outlined" fullWidth>
-                    <FcGoogle />
+                    <FcGoogle size={24}/>
                     &nbsp; Sign in with Google
                 </Button>
             </Grid>

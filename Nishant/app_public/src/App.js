@@ -7,20 +7,25 @@ import {Card, Features, Footer } from './containers/index';
 import {About, Discover, Home, Login, Product_page, Signup } from './pages/index';
 import './App.css';
 
+
 const App = () => {
   return (
-    <div className='App'>
+    
+    <><div className='App container'>
       <div>
-        <Navbar/>
-      </div>      
+        <Navbar />
+      </div>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/discover" element={<Discover />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/login" element={<Login />} />
-        <Route exact path="/signup" element={<Signup/>} />
+        <Route exact path="/signup" element={<Signup />} />
       </Routes>
-    </div>
+      <div>
+      <Footer />
+      </div>
+    </div></>
   )
 }
 
