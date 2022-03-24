@@ -42,7 +42,6 @@ const Login = () => {
        //navigate to another page.
        window.location = './home/Home'
     }
-
     
     return (
 
