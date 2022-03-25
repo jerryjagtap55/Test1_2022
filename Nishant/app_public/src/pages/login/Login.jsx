@@ -1,7 +1,7 @@
-import { React, useState } from 'react';
+import React from 'react';
 import './login.css';
 import { FcGoogle } from 'react-icons/fc';
-
+import axios from 'axios';
 // MUI
 import {
     Grid,
@@ -10,119 +10,95 @@ import {
     FormControlLabel,
     Checkbox,
     Button,
-    FormControl,
-    InputLabel,
-    OutlinedInput,
 } from '@mui/material';
 
 
 
 const Login = () => {
 
-            // event handeler
-            const [inputs, setInputs] = useState({});
-
-            const handleChange = (event) => {
-                const name = event.target.name;
-                const value = event.target.value;
-                setInputs(values => ({ ...values, [name]: value }))
-            }
+    // event handeler
+    function onSubmit(){
+        var emailValue = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
         
-            const handleSubmit = (event) => {
-                event.preventDefault();
-                console.log(inputs);
+        
+        
+        axios.get('http://localhost:4000/app/signin', {
+            params: {
+              email: emailValue
             }
+          }).then(response => {
+            if(Object.keys(response.data).length){
+               
+                if(response.data.password === password){
+                    console.log("login success");
+                } else {
+                    console.log("login unsuccess");
+                }
+            } else {
+                console.log("email not found");
+            }
+          });
 
-    return (
+       
+       //navigate to another page.
+       window.location = './home/Home'
+    }
     
-    <Grid className="logInform">
-        <Grid container xs={4} className="logInform" spacing={2} Width={600} minWidth={300} >
-            <Grid item sm={12}>
-                <h2>
-                    Log in to your account
-                </h2>
-            </Grid>
-            <Grid item sm={12}>
-                <p>Welcome back! Please enter your details.</p>
-            </Grid>
-            {/* Form */}
-            <Grid item sm={12}>
-                    <form
-                        onSubmit={handleSubmit}
-                    >
-                        <Grid container spacing={2}>
-                            <Grid item sm={12} className='marginauto'>
-                                <FormControl fullWidth>
-                                    <InputLabel htmlFor="component-outlined" 
-                                    size="small">Email</InputLabel>
-                                    <OutlinedInput
-                                        onChange={handleChange}
-                                        label="Email"
-                                        size="small"
-                                        type="email"
-                                        name="email"
-                                        value={OutlinedInput.email}
-                                        placeholder="Enter your email"
-                                        required
-                                    />
-                                </FormControl>
-                            </Grid>
+    return (
 
-                            <Grid item sm={12} className='marginauto'>
-                                <FormControl fullWidth>
-                                    <InputLabel htmlFor="component-outlined" 
-                                    size="small">Password</InputLabel>
-                                    <OutlinedInput
-                                        onChange={handleChange}
-                                        label="Password"
-                                        size="small"
-                                        type="password"
-                                        name="password"
-                                        value={OutlinedInput.password}
-                                        placeholder="Enter your password"
-                                        required
-                                    />
-                                </FormControl>
-                            </Grid>
-                            <Grid item sm={12} className='rememberstyle'>
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            name="checkedB"
-                            color="primary"
-                        />
-                    }
-                    label="Remember me"
-                />
-                <Link href="#" >
-                    Forgot password?
-                </Link>
-            </Grid>
-                            <Grid item sm={12} minWidth={250}>
-                                <Button type='submit'
-                                    color='primary'
-                                    variant="contained"
-                                    fullWidth>Log in</Button>
-                            </Grid>
-                        </Grid>
-                    </form>
+
+        <Grid className="logInform">
+            <Grid container xs={4} className="logInform" spacing={2} Width={600} minWidth={300} >
+                <Grid item sm={12}>
+                    <h2>
+                        Log in to your account
+                    </h2>
+                </Grid>
+                <Grid item sm={12}>
+                    <p>Welcome back! Please enter your details.</p>
+                </Grid>
+                <Grid item sm={12} className='marginauto'>
+                    <TextField fullWidth id="email" size="small" label="Email" variant="outlined" placeholder="Please enter your email" />
+                </Grid>
+                <Grid item sm={12} className='marginauto'>
+                    <TextField label='Password' id="password" size="small" placeholder='Enter password' type='password' fullWidth />
+                    
+                </Grid>
+                <Grid item sm={12} className='rememberstyle'>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                name="checkedB"
+                                color="primary"
+                            />
+                        }
+                        label="Remember me"
+                    />
+                    <Link href="#" >
+                        Forgot password?
+                    </Link>
+                </Grid>
+                <Grid item sm={12} minWidth={250}>
+                    <Button type='submit'  onClick={() => onSubmit()} color='primary' variant="contained" fullWidth>Log in</Button>
                 </Grid>
 
-            <Grid item sm={12}>
-                <Button variant="outlined" fullWidth>
-                    <FcGoogle size={24} />
-                    &nbsp; Sign in with Google
-                </Button>
-            </Grid>
 
-            <Grid item sm={12}>
-                Don't have an account? &nbsp;
-                <Link href="/signup" >
-                    Sign Up
-                </Link>
+                <Grid item sm={12}>
+                    <Button variant="outlined" fullWidth>
+                        <FcGoogle size={24}/>
+                        &nbsp; Sign in with Google
+                    </Button>
+                </Grid>
+
+                <Grid item sm={12}>
+                    Don't have an account? &nbsp; 
+                    <Link href="/signup" >
+                        Sign Up
+                    </Link>
+                </Grid>
             </Grid>
         </Grid>
-    </Grid>
 
     )
 }
