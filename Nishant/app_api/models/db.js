@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
+/*const mongoose = require("mongoose");
 
-const dbURI = 'mongodb+srv://admin:admin@food.4mnvq.mongodb.net/lantDB?retryWrites=true&w=majority';
-mongoose.connect(dbURI, {dbName: 'DreamDB'});
+const dbURI = 'mongodb+srv://admin:admin@cluster0.svy4o.mongodb.net/DigiArt?retryWrites=true&w=majority';
+mongoose.connect(dbURI, {dbName: 'DigiArt'});
 /*
 mongodb+srv://admin:<password>@food.4mnvq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-*/
+
 mongoose.connection.on('connected', () => {
     console.log(`Mongoose connected to ${dbURI}`);
 });
@@ -39,3 +39,4 @@ const gracefulShutdown = (msg, callback) => {
 
 
 require('./signupmodel');
+*/

@@ -27,6 +27,9 @@ router.post('/signup', async (request,response) => {
 }
 });
 
-
-//router.get('/signup')
+router.get('/signin',  async (request,response) =>{
+    let signedUpUser = await signUpTemplateCopy.findOne({email: request.query.email});
+    console.log(signedUpUser);
+    response.send(signedUpUser);                                                                                                                                                                                                          
+});
 module.exports = router

@@ -2,11 +2,11 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-const routesUrls = require('./routes/register')
+const routesUrls = require('../routes/register')
 const cors = require('cors')
 
 dotenv.config()
-mongoose.connect(process.env.DATABASE_ACCESS, () => console.log("Database connected..!!"))
+mongoose.connect("mongodb+srv://admin:admin@cluster0.svy4o.mongodb.net/DigiArt?retryWrites=true&w=majority", () => console.log("Database connected..!!"))
 
 app.use(express.json())
 app.use(cors())
