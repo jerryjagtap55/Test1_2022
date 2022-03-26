@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import React from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 
-import { CTA, Navbar } from './components/index';
-import {Card, Features, Footer } from './containers/index';
+import { CTA, Navbar, Card } from './components/index';
+import { Features, Footer } from './containers/index';
 import {About, Discover, Home, Login, Product_page, Signup } from './pages/index';
 import './App.css';
 
