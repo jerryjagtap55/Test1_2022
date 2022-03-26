@@ -10,7 +10,7 @@ const Hero = () => {
                         <h1 class="display-3 lh-1">Hero Section!</h1>
                         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                            <button type="button" class="btn btn-primary btn-lg px-4 mx-auto ">Primary</button>
+                            <button type="button" class="btn btn-primary btn-lg px-4 mx-auto ">Get Started</button>
                         </div>
                     </div>
                     <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
