@@ -49,7 +49,7 @@ const Login = () => {
 
 
         <Grid className="logInform">
-            <Grid container xs={4} className="logInform" spacing={2} Width={600} minWidth={300} >
+            <Grid item container xs={4} className="logInform" spacing={2} width={600} minWidth={300} >
                 <Grid item sm={12}>
                     <h2>
                         Log in to your account

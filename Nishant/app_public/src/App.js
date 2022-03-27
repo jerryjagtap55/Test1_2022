@@ -2,9 +2,9 @@ import logo from './logo.svg';
 import React from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 
-import { CTA, Navbar } from './components/index';
-import {Card, Features, Footer } from './containers/index';
-import {About, Discover, Home, Login, Product_page, Signup } from './pages/index';
+import { CTA, Navbar, Card } from './components/index';
+import { Features, Footer } from './containers/index';
+import {About, Discover, Home, Login, Product_page, Signup, Dashboard } from './pages/index';
 import './App.css';
 
 
@@ -21,6 +21,8 @@ const App = () => {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<Signup />} />
+        <Route path="/product" element={<Product_page/>} />
+        <Route path='/user' element = {<Dashboard/>} />
       </Routes>
       <div>
       <Footer />
