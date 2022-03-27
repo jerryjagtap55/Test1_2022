@@ -12,8 +12,8 @@ const Discover = () => {
     };
     return (
         <>
-            <div class='text-center'>
-                <div class='d-flex justify-content-around mb-3'>
+            <div className='text-center'>
+                <div className='d-flex justify-content-around mb-3'>
                     <Chip
                         label="Top Seller"
                         variant="outlined"
@@ -47,7 +47,7 @@ const Discover = () => {
                     />
 
                 </div>
-                <div class='d-flex justify-content-evenly'>
+                <div className='d-flex justify-content-evenly'>
             
                     <Chip
                         label="Memes"
@@ -75,20 +75,20 @@ const Discover = () => {
                     />
 
                 </div>
-                <h4 class='display-5 my-4'>
+                <h4 className='display-5 my-4'>
                     Let the Biding begin!
                 </h4>
 
             </div>
-            <div class='d-flex justify-content-center flex-column align-items-center mb-3'>
+            <div className='d-flex justify-content-center flex-column align-items-center mb-3'>
                 <Card></Card>
                 <Card></Card>
                 <Card></Card>
                 <Card></Card>
             </div>
-            <div class="d-flex justify-content-center">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
+            <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                    <span className="visually-hidden">Loading...</span>
                 </div>
             </div>
         </>
