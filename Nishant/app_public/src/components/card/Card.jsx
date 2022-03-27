@@ -20,7 +20,7 @@ const Card = () => {
                 </h6>
                 <p class="card-text small">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 
-                <a href="#" class="btn btn-primary mb-4">Check it out!</a>
+                <a href="/product" class="btn btn-primary mb-4">Check it out!</a>
 
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">1st Bid!</li>
