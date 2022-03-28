@@ -29,7 +29,7 @@ const SignUp = () => {
             .then(response => console.log(response.data))
         
         //navigate to another page.
-        window.location = './'
+        window.location = './login'
      }
 
         return (
