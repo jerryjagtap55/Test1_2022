@@ -1,4 +1,4 @@
-import React,  { Component }  from 'react';
+import React from 'react';
 import './signup.css';
 import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
@@ -10,7 +10,6 @@ import {
     Link, 
     Button,
 } from '@mui/material';
-import { useTheme } from '@mui/system';
 
 const SignUp = () => {
      function onSubmit(){
