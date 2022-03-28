@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  { Component }  from 'react';
 import './signup.css';
 import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
@@ -10,6 +10,7 @@ import {
     Link, 
     Button,
 } from '@mui/material';
+import { useTheme } from '@mui/system';
 
 const SignUp = () => {
      function onSubmit(){
@@ -24,12 +25,13 @@ const SignUp = () => {
             email,
             password
         }
+        console.log(registered);
 
         axios.post("http://localhost:4000/app/signup", registered)
             .then(response => console.log(response.data))
         
         //navigate to another page.
-        window.location = './'
+        window.location = './Login'
      }
 
         return (
