@@ -33,7 +33,7 @@ const Login = () => {
                 if (response.data.password === password) {
                     console.log("login success");
                     //navigate to another page.
-                    window.location = './'
+                    window.location = './Home'
                 } else {
                     console.log("login unsuccess");
                 }
