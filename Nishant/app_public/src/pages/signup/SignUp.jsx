@@ -31,7 +31,7 @@ const SignUp = () => {
             .then(response => console.log(response.data))
         
         //navigate to another page.
-        window.location = './Login'
+        window.location = './login'
      }
 
         return (
