@@ -11,11 +11,10 @@ const Sidebar = () => {
                     <ul className='nav nav-pills flex-column mb-auto mx-4'>
 
                         <li className='nav-item mb-2'>
-                            <a href="#/orders" className="align-items-center text-white text-decoration-none">
+                            <a href="/user" className="align-items-center text-white text-decoration-none">
                                 Orders
                             </a>
                         </li>
-
                         <li className='nav-item mb-2'>
                             <a href="/sell" className="align-items-center text-white text-decoration-none">
                             Sell an Item
