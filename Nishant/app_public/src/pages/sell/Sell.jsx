@@ -1,17 +1,18 @@
 import React from 'react';
-import './dashboard.css';
-import {Sidebar} from '../../containers/index';
+import { Sidebar } from '../../containers';
+import './sell.css';
 
-const Dashboard = () => {
-    return (
-        <>
+const Sell = () => {
+  return (
+      <>
             <div className='d-flex'>
                 <Sidebar>
+
                 </Sidebar>
                 <div className='mx-4 dashboard flex-fill'>
                     <div>
                     <h4 className='display-6'>
-                        Dashboard
+                        Sell an Item
                     </h4>
                     </div>
                     <hr/>
@@ -21,9 +22,8 @@ const Dashboard = () => {
                 </div>
 
             </div>
-
-        </>
-    )
+      </>
+  )
 }
 
-export default Dashboard
+export default Sell
