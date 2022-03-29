@@ -1,36 +1,29 @@
 // Schema
 
-const mongoose = require('mongoose')
+const mongoose = require( 'mongoose' );
 
-const signUpTemplate = new mongoose.Schema({
-    firstName:{
+const signUpTemplate = new mongoose.Schema( {
+    firstName: {
         type: String,
-        required: true,
-        minlength:5,
-        maxlength: 50
+        required: true
+
     },
     lastName: {
         type: String,
-        required: true,
-        minlength:5,
-        maxlength: 50
+        required: true
     },
     email: {
         type: String,
         required: true,
-        minlength: 5,
-        maxlength: 255,
         unique: true
     },
     password: {
         type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 255
+        //required: true
     },
     date: {
         type: Date,
         default: Date.now
     }
-})
-module.exports = mongoose.model('mytable', signUpTemplate)
+} );
+module.exports = mongoose.model( 'mytable', signUpTemplate );
