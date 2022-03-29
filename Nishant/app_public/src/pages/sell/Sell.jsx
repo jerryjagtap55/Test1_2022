@@ -1,29 +1,29 @@
 import React from 'react';
-import { Sidebar } from '../../containers';
+import { Product_form, Sidebar } from '../../containers';
 import './sell.css';
 
 const Sell = () => {
-  return (
-      <>
-            <div className='d-flex'>
+    return (
+        <>
+            <div className='row'>
                 <Sidebar>
 
                 </Sidebar>
-                <div className='mx-4 dashboard flex-fill'>
+                <div className='mx-4 dashboard flex-fill col-md-7'>
                     <div>
-                    <h4 className='display-6'>
-                        Sell an Item
-                    </h4>
+                        <h4 className='display-6'>
+                            Sell an Item
+                        </h4>
                     </div>
-                    <hr/>
+                    <hr />
                     <div>
-
+                        <Product_form></Product_form>
                     </div>
                 </div>
 
             </div>
-      </>
-  )
+        </>
+    )
 }
 
 export default Sell

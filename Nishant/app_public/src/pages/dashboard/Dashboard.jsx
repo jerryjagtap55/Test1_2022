@@ -5,10 +5,10 @@ import {Sidebar} from '../../containers/index';
 const Dashboard = () => {
     return (
         <>
-            <div className='d-flex'>
+            <div className='d-flex flex-wrap'>
                 <Sidebar>
                 </Sidebar>
-                <div className='mx-4 dashboard flex-fill'>
+                <div className='mx-4 dashboard flex-fill col-md-7'>
                     <div>
                     <h4 className='display-6'>
                         Dashboard
