@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import './product_page.css';
 import DoneIcon from '@mui/icons-material/Done';
+import card_img from '../../assets/art5.jpg';
 
 const Product_page = () => {
 
@@ -26,9 +27,8 @@ const Product_page = () => {
                 <div className="card mb-3">
 
                     <div className="card-body row">
-                        <div className="col-md-7">
-                            <img src="" className="img-fluid rounded-start" alt="Card" />
-                            <p>Image</p>
+                        <div className="col-md-7 card_img-holder">
+                            <img src={card_img} className="img-fluid rounded-start product_img" alt="Card" />
                         </div>
                         <div className="col-md-5">
                             <div>

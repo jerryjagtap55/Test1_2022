@@ -1,16 +1,20 @@
 import React from 'react';
 import './navbar.css';
 import { CgMenuRightAlt } from 'react-icons/cg';
+import { ReactComponent as Logo } from '../../assets/logo.svg';
 
 const Navbar = () => {
     return (
         <><nav className="navbar navbar-expand-md navbar-light d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-4 mb-4 border-bottom">
             <div className="container-fluid">
                 <div className='navwidth'>
-                    <a className="navbar-brand" href="/">Logo</a>
+                    <a className="navbar-brand" href="/">
+                        <Logo className='nav-logo me-2'></Logo>
+                        DigiArt
+                    </a>
                 </div>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <CgMenuRightAlt size={28}/>
+                    <CgMenuRightAlt size={28} />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <div className='marginauto'>
