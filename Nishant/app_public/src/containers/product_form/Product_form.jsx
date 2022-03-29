@@ -66,37 +66,37 @@ const Product_form = () => {
                 <div className='rows'>
                     <div className='col-md mb-3 mx-3'>
                         <label htmlFor="Catogeries">Catogaries: &nbsp;</label>
-                        <div class="form-check form-check-inline mx-3">
-                            <input class="form-check-input" type="checkbox" id="moden_art" value="moden art" />
-                            <label class="form-check-label" htmlFor="moden_art">Moden Art</label>
+                        <div className="form-check form-check-inline mx-3">
+                            <input className="form-check-input" type="checkbox" id="moden_art" value="moden art" />
+                            <label className="form-check-label" htmlFor="moden_art">Moden Art</label>
                         </div>
-                        <div class="form-check form-check-inline mx-3">
-                            <input class="form-check-input" type="checkbox" id="virtual_fashion" value="Virtual Fashion" />
-                            <label class="form-check-label" htmlFor="virtual_fashion">Virtual Fashion</label>
+                        <div className="form-check form-check-inline mx-3">
+                            <input className="form-check-input" type="checkbox" id="virtual_fashion" value="Virtual Fashion" />
+                            <label className="form-check-label" htmlFor="virtual_fashion">Virtual Fashion</label>
                         </div>
-                        <div class="form-check form-check-inline mx-3">
-                            <input class="form-check-input" type="checkbox" id="gamingt" value="Gaming" />
-                            <label class="form-check-label" htmlFor="gamingt">Gaming</label>
+                        <div className="form-check form-check-inline mx-3">
+                            <input className="form-check-input" type="checkbox" id="gamingt" value="Gaming" />
+                            <label className="form-check-label" htmlFor="gamingt">Gaming</label>
                         </div>
-                        <div class="form-check form-check-inline mx-3">
-                            <input class="form-check-input" type="checkbox" id="artwork" value="Artwork" />
-                            <label class="form-check-label" htmlFor="artwork">Artwork</label>
+                        <div className="form-check form-check-inline mx-3">
+                            <input className="form-check-input" type="checkbox" id="artwork" value="Artwork" />
+                            <label className="form-check-label" htmlFor="artwork">Artwork</label>
                         </div>
-                        <div class="form-check form-check-inline mx-3">
-                            <input class="form-check-input" type="checkbox" id="memes" value="Memes" />
-                            <label class="form-check-label" htmlFor="memes">Memes</label>
+                        <div className="form-check form-check-inline mx-3">
+                            <input className="form-check-input" type="checkbox" id="memes" value="Memes" />
+                            <label className="form-check-label" htmlFor="memes">Memes</label>
                         </div>
-                        <div class="form-check form-check-inline mx-3">
-                            <input class="form-check-input" type="checkbox" id="miscellaneous" value="Miscellaneous" />
-                            <label class="form-check-label" htmlFor="miscellaneous">Miscellaneous</label>
+                        <div className="form-check form-check-inline mx-3">
+                            <input className="form-check-input" type="checkbox" id="miscellaneous" value="Miscellaneous" />
+                            <label className="form-check-label" htmlFor="miscellaneous">Miscellaneous</label>
                         </div>
-                        <div class="form-check form-check-inline mx-3">
-                            <input class="form-check-input" type="checkbox" id="items" value="Collectible items" />
-                            <label class="form-check-label" htmlFor="items">Collectible items</label>
+                        <div className="form-check form-check-inline mx-3">
+                            <input className="form-check-input" type="checkbox" id="items" value="Collectible items" />
+                            <label className="form-check-label" htmlFor="items">Collectible items</label>
                         </div>
-                        <div class="form-check form-check-inline mx-3">
-                            <input class="form-check-input" type="checkbox" id="pixel_art" value="Pixel Art" />
-                            <label class="form-check-label" htmlFor="pixel_art">Pixel Art</label>
+                        <div className="form-check form-check-inline mx-3">
+                            <input className="form-check-input" type="checkbox" id="pixel_art" value="Pixel Art" />
+                            <label className="form-check-label" htmlFor="pixel_art">Pixel Art</label>
                         </div>
                     </div>
                 </div>
