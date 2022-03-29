@@ -18,7 +18,8 @@ import {
 const Login = () => {
 
     // event handeler
-    function onSubmit () {
+
+      function onSubmit () {
         var emailValue = document.getElementById( 'email' ).value;
         var password = document.getElementById( 'password' ).value;
 
@@ -62,6 +63,8 @@ const Login = () => {
 
     };
 
+
+
     return (
 
 
@@ -102,6 +105,7 @@ const Login = () => {
 
 
                 <Grid item sm={12}>
+
                     <GoogleLogin
                         clientId="188636961924-aqg9ristkvg8mhba6hj8dpd3g7rqt0vc.apps.googleusercontent.com"
                         buttonText="login with google"
@@ -109,6 +113,8 @@ const Login = () => {
                         onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
                     />
+                  
+
                 </Grid>
 
                 <Grid item sm={12}>

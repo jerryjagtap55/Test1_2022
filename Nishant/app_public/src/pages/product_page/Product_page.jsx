@@ -29,6 +29,7 @@ const Product_page = () => {
                             <img src="" className="img-fluid rounded-start" alt="Card Image" />
                             <p>Image</p>
                         </div>
+                        
                         <div className="col-md-5">
                             <div>
                                 <h4 className='card-title display-6'>Card Title</h4>
