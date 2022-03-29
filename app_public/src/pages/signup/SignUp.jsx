@@ -25,17 +25,18 @@ const SignUp = () => {
             email,
             password
         }
+        console.log(registered);
 
         axios.post("http://localhost:4000/app/signup", registered)
             .then(response => console.log(response.data))
         
         //navigate to another page.
-        window.location = '/login/Login'
+        window.location = './Login'
      }
 
         return (
           <Grid className="logInform"  >
-          <Grid container xs={4} className="logInform" spacing={2} Width={600} minWidth={300}>
+          <Grid item container xs={4} className="logInform" spacing={2} width={600} minWidth={300}>
               <Grid item sm={12}>
                   <h2>
                   Create an account

@@ -6,8 +6,7 @@ const routesUrls = require('../routes/register')
 const cors = require('cors')
 
 dotenv.config()
-// Mongoose Connection link
-mongoose.connect("mongodb+srv://Meshva:Meshva@cluster0.l32qe.mongodb.net/mytable?retryWrites=true&w=majority", () => console.log("Database connected..!!"))
+mongoose.connect("mongodb+srv://admin:pass@cluster0.svy4o.mongodb.net/DigiArt?retryWrites=true&w=majority", () => console.log("Database connected..!!"))
 
 app.use(express.json())
 app.use(cors())
