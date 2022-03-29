@@ -2,6 +2,7 @@ import React from 'react';
 import './login.css';
 import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
+import { GoogleLogin } from 'react-google-login';
 // MUI
 import {
     Grid,
@@ -17,34 +18,52 @@ import {
 const Login = () => {
 
     // event handeler
-    function onSubmit() {
-        var emailValue = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
+
+      function onSubmit () {
+        var emailValue = document.getElementById( 'email' ).value;
+        var password = document.getElementById( 'password' ).value;
 
 
 
-        axios.get('http://localhost:4000/app/signin', {
+        axios.get( 'http://localhost:4000/app/signin', {
             params: {
                 email: emailValue
             }
-        }).then(response => {
-            if (Object.keys(response.data).length) {
+        } ).then( response => {
+            if ( Object.keys( response.data ).length ) {
 
-                if (response.data.password === password) {
-                    console.log("login success");
-                    //navigate to another page.
-                    window.location = './Home'
+                if ( response.data.password === password ) {
+                    console.log( "login success" );
                 } else {
-                    console.log("login unsuccess");
+                    console.log( "login unsuccess" );
                 }
             } else {
-                console.log("email not found");
+                console.log( "email not found" );
             }
-        });
+        } );
 
 
-
+        //navigate to another page.
+        window.location = '/';
     }
+    const responseGoogle = ( response ) => {
+        console.log( response.profileObj.email );
+
+
+        axios( {
+            method: "POST",
+            url: "http://localhost:4000/api/signin",
+            data: { tokenId: response.tokenId }
+        } ).then( response => {
+            console.log( "google login success", response );
+        } );
+
+        //navigate to another page.
+        //   window.location = '/user';
+
+    };
+
+
 
     return (
 
@@ -86,10 +105,16 @@ const Login = () => {
 
 
                 <Grid item sm={12}>
-                    <Button variant="outlined" fullWidth>
-                        <FcGoogle size={24} />
-                        &nbsp; Sign in with Google
-                    </Button>
+
+                    <GoogleLogin
+                        clientId="188636961924-aqg9ristkvg8mhba6hj8dpd3g7rqt0vc.apps.googleusercontent.com"
+                        buttonText="login with google"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                    />
+                  
+
                 </Grid>
 
                 <Grid item sm={12}>
@@ -101,7 +126,7 @@ const Login = () => {
             </Grid>
         </Grid>
 
-    )
-}
+    );
+};
 
-export default Login
+export default Login;
