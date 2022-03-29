@@ -32,24 +32,24 @@ const SignUp = () => {
         //navigate to another page.
         window.location = './login';
 
-        const responseGoogle = ( response ) => {
-            console.log( response.profileObj.email );
 
-
-            axios( {
-                method: "POST",
-                url: "http://localhost:4000/api/signup",
-                data: { tokenId: response.tokenId }
-            } ).then( response => {
-                console.log( "google login success", response );
-            } );
-
-            //navigate to another page.
-            window.location = '/user';
-
-        };
     }
+    const responseGoogle = ( response ) => {
+        console.log( response.profileObj.email );
 
+
+        axios( {
+            method: "POST",
+            url: "http://localhost:4000/api/signup",
+            data: { tokenId: response.tokenId }
+        } ).then( response => {
+            console.log( "google login success", response );
+        } );
+
+        //navigate to another page.
+        window.location = '/user';
+
+    };
     return (
         <Grid className="logInform"  >
             <Grid item container xs={4} className="logInform" spacing={2} width={600} minWidth={300}>
