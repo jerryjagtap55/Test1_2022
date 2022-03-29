@@ -4,7 +4,7 @@ import './sidebar.css';
 const Sidebar = () => {
     return (
         <>
-            <div className='d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar'>
+            <div className='d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar col-md-3'>
                 <h5 className='mb-2 text-white text-decoration-none h5 text-center'>User Name</h5>
                 <hr />
                 <div >
