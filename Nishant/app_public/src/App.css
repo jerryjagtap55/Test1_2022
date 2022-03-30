@@ -1,26 +1,62 @@
-*{
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-  scroll-behavior: smooth;
-  font-family: var(--font-family);
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    scroll-behavior: smooth;
+    font-family: var(--font-family);
 }
 
-body{
-  background-color: var(--color-bg);
+body {
+    background-color: var(--color-bg);
 }
 
-button{
-  text-transform: none !important;
+button {
+    text-transform: none !important;
 }
 
-.logInform{
-display: flex;
-justify-content: center;
-text-align: center;
+.logInform {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
-.marginauto{
-  margin: auto !important;
-  padding:0.5rem;
+.marginauto {
+    margin: auto !important;
+    padding: 0.5rem;
+}
+
+.btn-primary {
+    background: var(--gradient-bar);
+    border: 0;
+    color: var(--color-bg);
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+    background: var(--gradient-text);
+    color: var(--color-bg);
+}
+
+.primary-color {
+    color: var(--color-primary);
+}
+
+a {
+    color: var(--color-subtext);
+}
+
+a:hover {
+    color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

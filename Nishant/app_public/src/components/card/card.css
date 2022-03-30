@@ -1,3 +1,12 @@
 .card-test{
     width: 50rem !important;
 }
+.card-img{
+    max-width: fit-content;
+    max-height: 24rem;
+}
+
+.card_img-holder{
+    display: flex;
+    justify-content: center;
+}

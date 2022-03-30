@@ -2,12 +2,15 @@
 
 :root {
     --font-family: 'Poppins', sans-serif;
-    --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
-    --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
+    --gradient-text: linear-gradient(89.97deg, #2b5876 1.84%, #4e4376 102.67%);
+    --gradient-bar: linear-gradient(103.22deg, #3A6073 -13.86%, #16222A 99.55%);
     --color-bg: #fefefe;
     --color-nav: #011526;
     --color-footer: #011526;
-    --color-blog: #042c54;
+    --color-primary: #f2ae2e;
+    --color-pry-lg-100: #ffdf00;
+    --color-pry-lg-150: #f2cf66;
+    --color-secoundry: #021226;
     --color-text: #81AFDD;
     --color-subtext: #FF8A71;
 }

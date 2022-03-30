@@ -1,5 +1,6 @@
 import React from 'react';
 import './card.css';
+import card_img from '../../assets/hero1.png'
 
 const Card = () => {
   return (
@@ -8,9 +9,8 @@ const Card = () => {
         <div className="card mb-3 card-test ">
 
           <div className="card-body row">
-            <div className="col-md-7">
-              <img src="" className="img-fluid rounded-start" alt="Card Image" />
-              <p>Image</p>
+            <div className="col-md-7 card_img-holder">
+              <img src={card_img} className="img-fluid rounded-start card-img" alt="Card Image" />
             </div>
             <div className="col-md-5">
               <div>

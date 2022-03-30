@@ -5,3 +5,8 @@
 .navbar-toggler{
     border: none;
 }
+
+.nav-logo{
+    width: fit-content;
+    height: 3rem;
+}
