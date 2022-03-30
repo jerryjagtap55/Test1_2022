@@ -1,8 +1,10 @@
 import React from 'react';
 import {
     FormControl,
+    InputLabel,
     Input,
     InputAdornment,
+    Button,
     IconButton,
 } from '@mui/material';
 import './product_page.css';
@@ -14,11 +16,8 @@ const Product_page = () => {
     // event handeler
     function onSubmit() {
         var amount = document.getElementById('amount').value;
-        /*
-        const Schema name = {
-            amount
-        }
-        */
+        var password = document.getElementById('password').value;
+
     }
 
     return (
@@ -30,6 +29,7 @@ const Product_page = () => {
                         <div className="col-md-7 card_img-holder">
                             <img src={card_img} className="img-fluid rounded-start product_img" alt="Card" />
                         </div>
+                        
                         <div className="col-md-5">
                             <div>
                                 <h4 className='card-title display-6'>Card Title</h4>
