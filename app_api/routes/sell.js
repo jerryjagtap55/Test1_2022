@@ -1,16 +1,17 @@
 const express = require('express')
 const router = express.Router()
-const sellSchemaCopy = require('../models/sellSchema')
+const sellSchemaCopy = require('../models/product')
 
 router.post('/sell', async (request,response) => {
         
     sellDataDetails = new sellSchemaCopy({
 
-            userName:request.body.userName,
-            artName:request.body.artName,
-            artDesc:request.body.artDesc,
-            bidstartPrice:request.body.bidstartPrice,
-            artImage:request.body.artImage
+            name:request.body.name,
+            description:request.body.description,
+            Image:request.body.Image,
+            category:request.body.category,
+            biding_start_price:request.body.biding_start_price,
+            user_date:request.body.user_date
     });
 
         sellDataDetails.save()
@@ -21,3 +22,4 @@ router.post('/sell', async (request,response) => {
             response.json(error)
         })
 });
+module.exports = router

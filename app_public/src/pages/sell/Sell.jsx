@@ -1,7 +1,7 @@
 import React from 'react';
 import { Product_form, Sidebar } from '../../containers';
 import './sell.css';
-import axios from 'axios';
+
 
 const Sell = () => {
 
