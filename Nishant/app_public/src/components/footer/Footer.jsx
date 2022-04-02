@@ -13,7 +13,7 @@ const Footer = () => {
                             <li className='nav-item'><a href="/" className="text-decoration-none text-muted">Home</a></li>
                             <li className='nav-item'><a href="/discover" className="text-decoration-none text-muted">Discover</a></li>
                             <li className='nav-item'><a href="/about" className="text-decoration-none text-muted">About</a></li>
-                            <li className='nav-item'><a href="#" className="text-decoration-none text-muted">FAQ</a></li>
+                            <li className='nav-item'><a href="/" className="text-decoration-none text-muted">FAQ</a></li>
 
                         </ul>
                     </div>
@@ -35,9 +35,9 @@ const Footer = () => {
                 <div className="d-flex justify-content-between py-4 my-4 border-top">
                     <p>© 2022 Company, Inc. All rights reserved.</p>
                     <ul className="list-unstyled d-flex">
-                        <li className="ms-3"><a className="link-dark" href="#"><BsInstagram size={24} /> </a></li>
-                        <li className="ms-3"><a className="link-dark" href="#"><BsTwitter size={24} /> </a></li>
-                        <li className="ms-3"><a className="link-dark" href="#"><BsFacebook size={24} /> </a></li>
+                        <li className="ms-3"><a className="link-dark" href="/"><BsInstagram size={24} /> </a></li>
+                        <li className="ms-3"><a className="link-dark" href="/"><BsTwitter size={24} /> </a></li>
+                        <li className="ms-3"><a className="link-dark" href="/"><BsFacebook size={24} /> </a></li>
                     </ul>
                 </div>
             </footer>

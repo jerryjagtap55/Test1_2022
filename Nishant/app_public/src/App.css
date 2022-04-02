@@ -34,7 +34,7 @@ button {
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:focus {
-    background: var(--gradient-text);
+    background: var(--gradient-bar-rev);
     color: var(--color-bg);
 }
 
@@ -51,12 +51,34 @@ a:hover {
 }
 
 h1,
-h2,
+h2 {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-brand {
+    background: var(--gradient-bar-rev);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-brand:hover {
+    background: var(--gradient-bar);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.display-4 {
+    font-weight: 400;
+}
+
 h3,
 h4,
 h5,
 h6 {
-    background: var(--gradient-text);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: bold;
 }

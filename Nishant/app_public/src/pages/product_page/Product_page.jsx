@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-    FormControl,
-    InputLabel,
-    Input,
-    InputAdornment,
-    Button,
-    IconButton,
-} from '@mui/material';
 import './product_page.css';
-import DoneIcon from '@mui/icons-material/Done';
 import card_img from '../../assets/art5.jpg';
 
 const Product_page = () => {
@@ -47,18 +38,16 @@ const Product_page = () => {
 
                                 <div className='d-flex align-items-baseline justify-content-between'>
                                     <p className='lead'>
-                                        Place Your bid :
+                                        $:
                                     </p>
-                                    <FormControl sx={{ m: 1 }} variant="standard">
-                                        <Input
-                                            size="small"
+                                    <div className=''>
+                                        <input
                                             id="amount"
-                                            startAdornment={<InputAdornment position="start">$</InputAdornment>}
                                         />
-                                    </FormControl>
-                                    <IconButton type='submit' onClick={() => onSubmit()} aria-label="submit bid">
-                                        <DoneIcon />
-                                    </IconButton>
+                                    </div>
+                                    <button className='btn btn-light' type='submit' onClick={() => onSubmit()}>
+                                        Bid Now
+                                    </button>
 
                                 </div>
                                 <p className='card-text lead text-muted my-4'>

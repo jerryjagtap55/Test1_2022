@@ -1,13 +1,5 @@
 import { React, useState } from 'react';
 
-import {
-    FormControl,
-    Input,
-    InputLabel,
-    TextField
-}
-    from '@mui/material';
-
 const Product_form = () => {
 
     const [name, setName] = useState("");
@@ -21,41 +13,40 @@ const Product_form = () => {
         <>
             <form className='container form-container' onSubmit={handleSubmit}>
                 <div className='rows'>
-                    <FormControl variant="standard" className='col-md-4 mb-3 mx-3'>
-                        <InputLabel htmlFor="component-simple">Name</InputLabel>
-                        <Input
+                    <div className='col-md-4 mb-3 mx-3'>
+                        <lable htmlFor="component-simple">Name</lable>
+                        <input
                             type="text"
                             name="p_name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             autoFocus
                         />
-                    </FormControl>
+                    </div>
                 </div>
                 <div className='rows'>
                     <div className="col-md-4 mb-3 mx-3">
-                        <TextField
+                        <textarea
                             id="description"
                             label="Description"
                             multiline
                             rows={4}
-                            variant="standard"
-                            fullWidth
+                        >
+                        </textarea>
+                    </div>
+                </div>
+                <div className='rows'>
+                    <div className='col-md-4 mb-3 mx-3'>
+                        <lable htmlFor="component-simple">Biding Start Price</lable>
+                        <input
+                            type='number'
+                            name='bid_price'
                         />
                     </div>
                 </div>
                 <div className='rows'>
-                    <FormControl variant="standard" className='col-md-4 mb-3 mx-3'>
-                        <InputLabel htmlFor="component-simple">Biding Start Price</InputLabel>
-                        <Input
-                            type='number'
-                            name='bid_price'
-                        />
-                    </FormControl>
-                </div>
-                <div className='rows'>
                     <div className='col-md-6 mb-3 mx-3'>
-                        <Input
+                        <input
                             lable='Timer'
                             type='datetime-local'
                             name='days'
@@ -103,9 +94,7 @@ const Product_form = () => {
 
                 <div className='rows'>
                     <div className='col-md-4 mb-3 mx-3'>
-                        <label htmlFor="image">
-                            <Input accept="image/*" id="image" multiple type="file" />
-                        </label>
+                        <input type="file" class="form-control" id="customFile" />
                     </div>
                 </div>
 

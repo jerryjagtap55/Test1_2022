@@ -1,78 +1,72 @@
 import React from 'react';
-import { Card } from '../../containers';
-import { Chip } from '@mui/material';
+import { Card } from '../../components/index';
 import './discover.css'
 
 const Discover = () => {
     const handleClick = () => {
-        console.info('You clicked the Chip.');
-    };
-    const handleDelete = () => {
-        console.info('You clicked the delete icon.');
+        console.info('You clicked the button.');
     };
     return (
         <>
             <div className='text-center'>
                 <div className='d-flex justify-content-around mb-3'>
-                    <Chip
-                        label="Top Seller"
-                        variant="outlined"
+                    <button type='button' className='Chips btn btn-light'
                         onClick={handleClick}
-                        onDelete={handleDelete}
-                    />
+                    >
+                        Top Seller
+                    </button>
 
-                    <Chip
-                        label="Morden Art"
-                        variant="outlined"
+                    <button type='button' className='Chips btn btn-light'
                         onClick={handleClick}
-                        onDelete={handleDelete}
-                    />
-                    <Chip
-                        label="Virtual Fashion"
-                        variant="outlined"
+                    >
+                        Morden Art
+                    </button>
+                    <button type='button' className='Chips btn btn-light'
                         onClick={handleClick}
-                        onDelete={handleDelete}
-                    />
-                    <Chip
-                        label="Gaming"
-                        variant="outlined"
+                    >
+                        Virtual Fashion
+                    </button>
+
+                    <button type='button' className='Chips btn btn-light'
                         onClick={handleClick}
-                        onDelete={handleDelete}
-                    />
-                    <Chip
-                        label="Artwork"
-                        variant="outlined"
+                    >
+                        Gaming
+                    </button>
+
+                    <button type='button' className='Chips btn btn-light'
                         onClick={handleClick}
-                        onDelete={handleDelete}
-                    />
+                    >
+                        Artwork
+                    </button>
+
 
                 </div>
                 <div className='d-flex justify-content-evenly'>
-            
-                    <Chip
-                        label="Memes"
-                        variant="outlined"
+
+                    <button type='button' className='Chips btn btn-light'
                         onClick={handleClick}
-                        onDelete={handleDelete}
-                    />
-                    <Chip
-                        label="Miscellaneous"
-                        variant="outlined"
+                    >
+                        Memes
+                    </button>
+
+                    <button type='button' className='Chips btn btn-light'
                         onClick={handleClick}
-                        onDelete={handleDelete}
-                    />
-                    <Chip
-                        label="Collectible items"
-                        variant="outlined"
+                    >
+                        Miscellaneous
+                    </button>
+
+                    <button type='button' className='Chips btn btn-light'
                         onClick={handleClick}
-                        onDelete={handleDelete}
-                    />
-                    <Chip
-                        label="Pixel Art"
-                        variant="outlined"
+                    >
+                        Collectible items
+                    </button>
+
+                    <button type='button' className='Chips btn btn-light'
                         onClick={handleClick}
-                        onDelete={handleDelete}
-                    />
+                    >
+                        Pixel Art
+                    </button>
+
 
                 </div>
                 <h4 className='display-5 my-4'>
@@ -85,7 +79,8 @@ const Discover = () => {
                 <Card></Card>
                 <Card></Card>
                 <Card></Card>
-            </div>
+            
+             </div>
             <div className="d-flex justify-content-center">
                 <div className="spinner-border" role="status">
                     <span className="visually-hidden">Loading...</span>

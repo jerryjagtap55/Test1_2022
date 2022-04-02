@@ -1,35 +1,38 @@
-import logo from './logo.svg';
 import React from 'react';
-import { Routes, Route, Link } from "react-router-dom";
-
-import { CTA, Navbar, Card } from './components/index';
-import { Features, Footer } from './containers/index';
-import {About, Discover, Home, Login, Product_page, Signup, Dashboard, Sell } from './pages/index';
+import { Routes, Route } from "react-router-dom";
 import './App.css';
+import {Navbar, Footer} from './components/index';
+import {Home, Discover, About, Dashboard, Sell, Product_page, Login, Signup } from './pages/index';
 
 
-const App = () => {
+function App() {
   return (
-    
-    <><div className='App container'>
-      <div>
-        <Navbar />
-      </div>
-      <Routes>
+    <>
+      <div className='App container'>
+        <div>
+          <Navbar />
+        </div>
+        <div>
+          <h1>
+            Succussful test
+          </h1>
+        </div>
+        <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/discover" element={<Discover />} />
         <Route exact path="/about" element={<About />} />
+        <Route path='/user' element = {<Dashboard/>} />
+        <Route path='/sell' element = {<Sell/>} />        
+        <Route path="/product" element={<Product_page/>} />
+
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<Signup />} />
-        <Route path="/product" element={<Product_page/>} />
-        <Route path='/user' element = {<Dashboard/>} />
-        <Route path='/sell' element = {<Sell/>} />
-      </Routes>
-      <div>
-      <Footer />
+
+        </Routes>
       </div>
-    </div></>
-  )
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;

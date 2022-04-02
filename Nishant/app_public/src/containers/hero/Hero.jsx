@@ -1,18 +1,7 @@
 import React from 'react';
 import './hero.css';
-import { useLottie } from "lottie-react";
-import lottie_art from '../../assets/lottie_art.json';
 
 const Hero = () => {
-    const options = {
-        animationData: lottie_art,
-        loop: true,
-        autoplay: true,
-    };
-
-    const { View } = useLottie(options);
-
-
     return (
         <>
             <div className="container my-5">
@@ -29,7 +18,7 @@ const Hero = () => {
                         </div>
                     </div>
                     <div className="col-lg-4 p-0 overflow-hidden">
-                        {View}
+
                     </div>
                 </div>
             </div>

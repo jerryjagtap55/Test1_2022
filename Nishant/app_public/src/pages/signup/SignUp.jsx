@@ -1,16 +1,7 @@
 import React from 'react';
 import './signup.css';
-import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
 import { GoogleLogin } from 'react-google-login';
-
-// MUI
-import {
-    Grid,
-    TextField,
-    Link,
-    Button,
-} from '@mui/material';
 
 const SignUp = () => {
     function onSubmit () {
@@ -51,36 +42,39 @@ const SignUp = () => {
 
     };
     return (
-        <Grid className="logInform"  >
-            <Grid item container xs={4} className="logInform" spacing={2} width={600} minWidth={300}>
-                <Grid item sm={12}>
+        <div className="logInform"  >
+            <div className="logInform" spacing={2} width={600} minWidth={300}>
+                <div>
                     <h2>
                         Create an account
                     </h2>
-                </Grid>
-                <Grid item sm={12}>
+                </div>
+                <div>
                     <p>Start your journey!</p>
-                </Grid>
-                <Grid item sm={12} className='marginauto'>
-                    <TextField fullWidth id="firstName" name="firstName" size="small" label="First Name" variant="outlined" placeholder="Enter your First name " />
-                </Grid>
-                <Grid item sm={12} className='marginauto'>
-                    <TextField fullWidth id="lastName" name="lastName" size="small" label="Last Name" variant="outlined" placeholder="Enter your Last name" />
-                </Grid>
-                <Grid item sm={12} className='marginauto'>
-                    <TextField fullWidth id="email" name="email" size="small" label="Email" variant="outlined" placeholder="Enter your email" />
-                </Grid>
+                </div>
+                <div className='marginauto'>
+                    <label htmlFor="firstName">First Name:</label>
+                    <input id="firstName" name="firstName" placeholder="Enter your First name " />
+                </div>
+                <div className='marginauto'>
+                <label htmlFor="lastName">Last Name:</label>
+                    <input id="lastName" name="lastName"  placeholder="Enter your Last name" />
+                </div>
+                <div className='marginauto'>
+                    <label htmlFor="email">Email: </label>
+                    <input id="email" name="email"  type='email' placeholder="Enter your email" />
+                </div>
 
-                <Grid item sm={12} className='marginauto'>
-                    <TextField id="password" label='Password' size="small" name="password" placeholder='Create a password' type='password' fullWidth />
+                <div className='marginauto'>
+                    <input id="password" name="password" placeholder='Create a password' type='password' />
 
-                </Grid>
-                <Grid item sm={12} minWidth={250}>
-                    <Button type='submit' onClick={() => onSubmit()} color='primary' variant="contained" fullWidth>Get started</Button>
-                </Grid>
+                </div>
+                <div minWidth={250}>
+                    <button className='btn btn-primary' type='submit' onClick={() => onSubmit()} color='primary'>Get started</button>
+                </div>
 
 
-                <Grid item sm={12}>
+                <div>
                     <GoogleLogin
                         clientId="188636961924-aqg9ristkvg8mhba6hj8dpd3g7rqt0vc.apps.googleusercontent.com"
                         buttonText="Sign up with google"
@@ -88,16 +82,16 @@ const SignUp = () => {
                         onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
                     />
-                </Grid>
+                </div>
 
-                <Grid item sm={12}>
+                <div>
                     Already have an account? &nbsp;
-                    <Link href="/login" >
+                    <a href="/login" >
                         Log In
-                    </Link>
-                </Grid>
-            </Grid>
-        </Grid>
+                    </a>
+                </div>
+            </div>
+        </div>
     );
 
 };

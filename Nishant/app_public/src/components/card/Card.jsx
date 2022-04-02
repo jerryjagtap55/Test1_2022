@@ -10,7 +10,7 @@ const Card = () => {
 
           <div className="card-body row">
             <div className="col-md-7 card_img-holder">
-              <img src={card_img} className="img-fluid rounded-start card-img" alt="Card Image" />
+              <img src={card_img} className="img-fluid rounded-start card-img" alt="Card" />
             </div>
             <div className="col-md-5">
               <div>

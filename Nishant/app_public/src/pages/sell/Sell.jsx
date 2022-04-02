@@ -7,7 +7,6 @@ const Sell = () => {
         <>
             <div className='row'>
                 <Sidebar>
-
                 </Sidebar>
                 <div className='mx-4 dashboard flex-fill col-md-7'>
                     <div>
