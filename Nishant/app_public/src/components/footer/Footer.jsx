@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 import './footer.css';
 import { BsInstagram, BsTwitter, BsFacebook } from 'react-icons/bs'
 
@@ -10,10 +12,10 @@ const Footer = () => {
                     <div className="col-2">
                         <h5>Quick Links</h5>
                         <ul className="navbar-nav me-auto justify-content-center mb-md-0">
-                            <li className='nav-item'><a href="/" className="text-decoration-none text-muted">Home</a></li>
-                            <li className='nav-item'><a href="/discover" className="text-decoration-none text-muted">Discover</a></li>
-                            <li className='nav-item'><a href="/about" className="text-decoration-none text-muted">About</a></li>
-                            <li className='nav-item'><a href="#" className="text-decoration-none text-muted">FAQ</a></li>
+                            <li className='nav-item'><Link href="/" className="text-decoration-none text-muted">Home</Link></li>
+                            <li className='nav-item'><Link href="/discover" className="text-decoration-none text-muted">Discover</Link></li>
+                            <li className='nav-item'><Link href="/about" className="text-decoration-none text-muted">About</Link></li>
+                            <li className='nav-item'><Link href="#" className="text-decoration-none text-muted">FAQ</Link></li>
 
                         </ul>
                     </div>
@@ -35,9 +37,9 @@ const Footer = () => {
                 <div className="d-flex justify-content-between py-4 my-4 border-top">
                     <p>© 2022 Company, Inc. All rights reserved.</p>
                     <ul className="list-unstyled d-flex">
-                        <li className="ms-3"><a className="link-dark" href="#"><BsInstagram size={24} /> </a></li>
-                        <li className="ms-3"><a className="link-dark" href="#"><BsTwitter size={24} /> </a></li>
-                        <li className="ms-3"><a className="link-dark" href="#"><BsFacebook size={24} /> </a></li>
+                        <li className="ms-3"><Link className="link-dark" href="#"><BsInstagram size={24} /> </Link></li>
+                        <li className="ms-3"><Link className="link-dark" href="#"><BsTwitter size={24} /> </Link></li>
+                        <li className="ms-3"><Link className="link-dark" href="#"><BsFacebook size={24} /> </Link></li>
                     </ul>
                 </div>
             </footer>
