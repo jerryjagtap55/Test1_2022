@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './sidebar.css';
 
 const Sidebar = () => {
@@ -11,19 +12,24 @@ const Sidebar = () => {
                     <ul className='nav nav-pills flex-column mb-auto mx-4'>
 
                         <li className='nav-item mb-2'>
-                            <a href="/user" className="align-items-center text-white text-decoration-none">
+                           <Link to="/user" className="align-items-center text-white text-decoration-none">
                                 Orders
-                            </a>
+                            </Link>
                         </li>
                         <li className='nav-item mb-2'>
-                            <a href="/sell" className="align-items-center text-white text-decoration-none">
+                           <Link to="/sell" className="align-items-center text-white text-decoration-none">
                             Sell an Item
-                            </a>
+                            </Link>
                         </li>
                         <li className='nav-item mb-2'>
-                            <a href="/login" className="align-items-center text-white text-decoration-none">
+                           <Link to="/checkout" className="align-items-center text-white text-decoration-none">
+                            Checkout
+                            </Link>
+                        </li>
+                        <li className='nav-item mb-2'>
+                           <Link to="/login" className="align-items-center text-white text-decoration-none">
                             Sign out
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

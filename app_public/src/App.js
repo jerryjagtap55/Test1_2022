@@ -4,7 +4,7 @@ import { Routes, Route, Link } from "react-router-dom";
 
 import { CTA, Navbar, Card } from './components/index';
 import { Features, Footer } from './containers/index';
-import {About, Discover, Home, Login, Product_page, Signup, Dashboard, Sell } from './pages/index';
+import {About, Discover, Home, Login, Product_page, Signup, Dashboard, Sell, Checkout } from './pages/index';
 import './App.css';
 
 
@@ -24,6 +24,7 @@ const App = () => {
         <Route path="/product" element={<Product_page/>} />
         <Route path='/user' element = {<Dashboard/>} />
         <Route path='/sell' element = {<Sell/>} />
+        <Route path='/checkout' element = {<Checkout/>} />
       </Routes>
       <div>
       <Footer />
