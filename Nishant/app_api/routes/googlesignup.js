@@ -1,6 +1,6 @@
 const express = require( 'express' );
 const router = express.Router();
-const signUpTemplateCopy = require( '../models/signupmodel' );
+const signUpTemplateCopy = require( '../models/User' );
 const { OAuth2Client } = require( 'google-auth-library' );
 
 const client = new OAuth2Client( "188636961924-aqg9ristkvg8mhba6hj8dpd3g7rqt0vc.apps.googleusercontent.com" );
@@ -21,8 +21,7 @@ router.post( '/signup', async ( request, response ) => {
             }
             let newUser = new signUpTemplateCopy( {
 
-                firstName: response.payload.given_name,
-                lastName: response.payload.family_name,
+                username: response.payload.given_name,
                 email: response.payload.email
 
             } );
