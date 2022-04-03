@@ -1,6 +1,7 @@
 import React from 'react';
 import './card.css';
 import card_img from '../../assets/hero1.png'
+import { Link } from 'react-router-dom';
 
 const Card = () => {
   return (
@@ -10,7 +11,7 @@ const Card = () => {
 
           <div className="card-body row">
             <div className="col-md-7 card_img-holder">
-              <img src={card_img} className="img-fluid rounded-start card-img" alt="Card Image" />
+              <img src={card_img} className="img-fluid rounded-start card-img" alt="Card" />
             </div>
             <div className="col-md-5">
               <div>
@@ -20,7 +21,7 @@ const Card = () => {
                 </h6>
                 <p className="card-text small">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 
-                <a href="/product" className="btn btn-primary mb-4">Check it out!</a>
+                <Link to="/product" className="btn btn-primary mb-4">Check it out!</Link>
 
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item">1st Bid!</li>

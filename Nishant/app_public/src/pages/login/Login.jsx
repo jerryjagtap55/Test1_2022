@@ -1,13 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './login.css';
-import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
 import { GoogleLogin } from 'react-google-login';
 // MUI
 import {
     Grid,
     TextField,
-    Link,
     FormControlLabel,
     Checkbox,
     Button,
@@ -19,44 +18,45 @@ const Login = () => {
 
     // event handeler
 
-      function onSubmit () {
-        var emailValue = document.getElementById( 'email' ).value;
-        var password = document.getElementById( 'password' ).value;
+    function onSubmit() {
+        var emailValue = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
 
 
 
-        axios.get( 'http://localhost:4000/app/signin', {
+        axios.get('http://localhost:4000/app/signin', {
             params: {
                 email: emailValue
             }
-        } ).then( response => {
-            if ( Object.keys( response.data ).length ) {
+        }).then(response => {
+            if (Object.keys(response.data).length) {
 
-                if ( response.data.password === password ) {
-                    console.log( "login success" );
+                if (response.data.password === password) {
+                    console.log("login success");
+                    //navigate to another page.
+                    window.location = '/user';
+
                 } else {
-                    console.log( "login unsuccess" );
+                    console.log("login unsuccess");
                 }
             } else {
-                console.log( "email not found" );
+                console.log("email not found");
             }
-        } );
+        });
 
 
-        //navigate to another page.
-        window.location = '/';
     }
-    const responseGoogle = ( response ) => {
-        console.log( response.profileObj.email );
+    const responseGoogle = (response) => {
+        console.log(response.profileObj.email);
 
 
-        axios( {
+        axios({
             method: "POST",
             url: "http://localhost:4000/api/signin",
             data: { tokenId: response.tokenId }
-        } ).then( response => {
-            console.log( "google login success", response );
-        } );
+        }).then(response => {
+            console.log("google login success", response);
+        });
 
         //navigate to another page.
         //   window.location = '/user';
@@ -95,7 +95,7 @@ const Login = () => {
                         }
                         label="Remember me"
                     />
-                    <Link href="#" >
+                    <Link to="#" >
                         Forgot password?
                     </Link>
                 </Grid>
@@ -113,13 +113,13 @@ const Login = () => {
                         onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
                     />
-                  
+
 
                 </Grid>
 
                 <Grid item sm={12}>
                     Don't have an account? &nbsp;
-                    <Link href="/signup" >
+                    <Link to="/signup" >
                         Sign Up
                     </Link>
                 </Grid>

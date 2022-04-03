@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import React from 'react';
-import { Routes, Route, Link } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CTA, Navbar, Card } from './components/index';
 import { Features, Footer } from './containers/index';
 import {About, Discover, Home, Login, Product_page, Signup, Dashboard, Sell } from './pages/index';
@@ -16,11 +14,11 @@ const App = () => {
         <Navbar />
       </div>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/discover" element={<Discover />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/signup" element={<Signup />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/discover" element={<Discover />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/product" element={<Product_page/>} />
         <Route path='/user' element = {<Dashboard/>} />
         <Route path='/sell' element = {<Sell/>} />
