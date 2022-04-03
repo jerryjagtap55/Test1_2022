@@ -19,7 +19,7 @@ const Login = () => {
 
     // event handeler
 
-      function onSubmit () {
+    function onSubmit () {
         var emailValue = document.getElementById( 'email' ).value;
         var password = document.getElementById( 'password' ).value;
 
@@ -59,7 +59,7 @@ const Login = () => {
         } );
 
         //navigate to another page.
-        //   window.location = '/user';
+        // window.location = '/user';
 
     };
 
@@ -113,7 +113,7 @@ const Login = () => {
                         onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
                     />
-                  
+
 
                 </Grid>
 

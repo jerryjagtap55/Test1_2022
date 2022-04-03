@@ -1,14 +1,31 @@
 import React from 'react';
 import { Card } from '../../containers';
 import { Chip } from '@mui/material';
-import './discover.css'
+import './discover.css';
 
 const Discover = () => {
+    async function fetchdata () {
+        const response = await fetch( "http://localhost:4000/homedataapi/home" );
+        if ( !response.ok ) {
+            const message = `an error has occured `;
+            window.alert( message );
+            return;
+        }
+        const record = await response.json();
+        if ( !record ) {
+            window.alert( "record not found" );
+            return;
+        }
+        return record;
+        window.alert( record );
+        console.log( record );
+    }
+    fetchdata();
     const handleClick = () => {
-        console.info('You clicked the Chip.');
+        console.info( 'You clicked the Chip.' );
     };
     const handleDelete = () => {
-        console.info('You clicked the delete icon.');
+        console.info( 'You clicked the delete icon.' );
     };
     return (
         <>
@@ -48,7 +65,7 @@ const Discover = () => {
 
                 </div>
                 <div className='d-flex justify-content-evenly'>
-            
+
                     <Chip
                         label="Memes"
                         variant="outlined"
@@ -92,7 +109,7 @@ const Discover = () => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Discover
+export default Discover;

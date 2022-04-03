@@ -1,20 +1,21 @@
-import React from 'react'
+import React from 'react';
 import { Card } from '../index';
 
-const Carousel = () => {
+const Carousel = ( props ) => {
+    const record = props;
     return (
         <>
             <div className="container-fluid py-2">
                 <div className="d-flex flex-row flex-nowrap overflow-auto">
                     <Card></Card>
                     <div className='mx-4'>
-                    <Card></Card>
+                        <Card></Card>
                     </div>
                     <Card></Card>
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Carousel
+export default Carousel;

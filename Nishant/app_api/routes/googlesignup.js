@@ -3,6 +3,7 @@ const router = express.Router();
 const signUpTemplateCopy = require( '../models/signupmodel' );
 const { OAuth2Client } = require( 'google-auth-library' );
 
+
 const client = new OAuth2Client( "188636961924-aqg9ristkvg8mhba6hj8dpd3g7rqt0vc.apps.googleusercontent.com" );
 
 router.post( '/signup', async ( request, response ) => {
@@ -16,8 +17,7 @@ router.post( '/signup', async ( request, response ) => {
 
         signUpTemplateCopy.findOne( { email } ).exec( ( err, user ) => {
             if ( user ) {
-                //console.log( "user exists" );
-                window.location.replace( "/login" );
+                console.log( "user exists" );
             }
             let newUser = new signUpTemplateCopy( {
 

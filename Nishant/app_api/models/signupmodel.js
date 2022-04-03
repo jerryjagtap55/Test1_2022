@@ -21,6 +21,27 @@ const signUpTemplate = new mongoose.Schema( {
         type: String,
         //required: true
     },
+    products: [
+        {
+            name: {
+                type: String
+            },
+            price: {
+                type: String
+            }
+        }
+    ],
+    sold_products: [
+        {
+            name: {
+                type: String
+            },
+            price: {
+                type: String
+            }
+        }
+
+    ],
     date: {
         type: Date,
         default: Date.now

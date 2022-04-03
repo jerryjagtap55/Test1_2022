@@ -24,9 +24,14 @@ router.post( '/signup', async ( request, response ) => {
             .catch( error => {
                 response.json( error );
             } );
+
     }
 } );
 
 
-//router.get('/signup')
+router.get( '/signin', async ( request, response ) => {
+    let signedUpUser = await signUpTemplateCopy.findOne( { email: request.query.email } );
+    console.log( signedUpUser );
+    response.send( signedUpUser );
+} );
 module.exports = router;
