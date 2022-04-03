@@ -5,7 +5,7 @@ var cookieParser = require( 'cookie-parser' );
 var logger = require( 'morgan' );
 
 
-require( "./app_api/controllers/server" );
+require( "./app_api/server" );
 
 
 var indexRouter = require( './app_server/routes/index' );

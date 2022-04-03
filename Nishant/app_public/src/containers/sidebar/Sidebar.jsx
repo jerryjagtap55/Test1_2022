@@ -22,6 +22,11 @@ const Sidebar = () => {
                             </Link>
                         </li>
                         <li className='nav-item mb-2'>
+                           <Link to="/checkout" className="align-items-center text-white text-decoration-none">
+                            Checkout
+                            </Link>
+                        </li>
+                        <li className='nav-item mb-2'>
                            <Link to="/login" className="align-items-center text-white text-decoration-none">
                             Sign out
                             </Link>
