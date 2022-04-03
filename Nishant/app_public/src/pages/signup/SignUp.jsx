@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './signup.css';
-import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
 import { GoogleLogin } from 'react-google-login';
 
@@ -8,7 +8,6 @@ import { GoogleLogin } from 'react-google-login';
 import {
     Grid,
     TextField,
-    Link,
     Button,
 } from '@mui/material';
 
@@ -92,7 +91,7 @@ const SignUp = () => {
 
                 <Grid item sm={12}>
                     Already have an account? &nbsp;
-                    <Link href="/login" >
+                    <Link to="/login" >
                         Log In
                     </Link>
                 </Grid>

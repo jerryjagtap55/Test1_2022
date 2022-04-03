@@ -7,9 +7,11 @@ const Discover = () => {
     const handleClick = () => {
         console.info('You clicked the Chip.');
     };
+    /* 
     const handleDelete = () => {
         console.info('You clicked the delete icon.');
     };
+     */
     return (
         <>
             <div className='text-center'>
@@ -18,60 +20,51 @@ const Discover = () => {
                         label="Top Seller"
                         variant="outlined"
                         onClick={handleClick}
-                        onDelete={handleDelete}
                     />
 
                     <Chip
                         label="Morden Art"
                         variant="outlined"
                         onClick={handleClick}
-                        onDelete={handleDelete}
                     />
                     <Chip
                         label="Virtual Fashion"
                         variant="outlined"
                         onClick={handleClick}
-                        onDelete={handleDelete}
                     />
                     <Chip
                         label="Gaming"
                         variant="outlined"
                         onClick={handleClick}
-                        onDelete={handleDelete}
                     />
                     <Chip
                         label="Artwork"
                         variant="outlined"
                         onClick={handleClick}
-                        onDelete={handleDelete}
                     />
 
                 </div>
                 <div className='d-flex justify-content-evenly'>
-            
+
                     <Chip
                         label="Memes"
                         variant="outlined"
                         onClick={handleClick}
-                        onDelete={handleDelete}
                     />
                     <Chip
                         label="Miscellaneous"
                         variant="outlined"
                         onClick={handleClick}
-                        onDelete={handleDelete}
                     />
                     <Chip
                         label="Collectible items"
                         variant="outlined"
                         onClick={handleClick}
-                        onDelete={handleDelete}
                     />
                     <Chip
                         label="Pixel Art"
                         variant="outlined"
                         onClick={handleClick}
-                        onDelete={handleDelete}
                     />
 
                 </div>
