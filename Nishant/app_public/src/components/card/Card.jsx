@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import './card.css';
 import { useNavigate } from 'react-router-dom';
 // Actions
-import { loadad, loadAdImage, setImageLoadingStatus } from '../../actions/ad';
+import { loadAdImage, setImageLoadingStatus, loadAdDetails } from '../../actions/ad';
 // Files
-import { secondsToHmsShort } from '../../utils/secondsToHms';
+import { secondsToHms } from '../utils/secondsToHms';
 
 
 
@@ -31,6 +31,16 @@ const Card = ( props ) => {
     }
   };
 
+  const getTimeRemaining = () => {
+    return secondsToHms( props.ad.timer );
+  };
+
+  const getUTCDate = ( dt ) => {
+    let isodt = new Date( dt );
+    return isodt.toDateString();
+  };
+
+
   return (
     <>
 
@@ -39,7 +49,7 @@ const Card = ( props ) => {
 
           <div className="card-body row">
             <div className="col-md-7 card_img-holder">
-              <img src={props.ad.image ? props.ad.image : imagePlaceholder}
+              <img src={props.ad.image}
                 className="img-fluid rounded-start card-img" alt="Card" />
             </div>
             <div className="col-md-5">
@@ -54,12 +64,15 @@ const Card = ( props ) => {
 
                 <a onClick={( e ) => {
                   handleCardClick( e );
-                }} className="btn btn-primary mb-4">Check it out!</a>
+                }}> <button className="btn btn-primary mb-4">Check it out!
+                  </button>
+                </a>
 
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item">Total Bid: {props.ad.bids.length}</li>
                   <li className="list-group-item">Current Bid: {props.highestBid}</li>
-                  <li className="list-group-item"></li>
+                  <li className="list-group-item">Status: {updateAuctionStatus( props.ad )}
+                  </li>
                 </ul>
 
                 <p className='card-text lead text-muted my-4'>

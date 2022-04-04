@@ -1,11 +1,9 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 import './signup.css';
-import axios from 'axios';
-import { GoogleLogin } from 'react-google-login';
 
 // MUI
 import {
@@ -20,7 +18,6 @@ import { removeAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 // Files
 
-import Alert from '../../components/Alert';
 
 
 const SignUp = ( props ) => {
@@ -33,6 +30,13 @@ const SignUp = ( props ) => {
     } );
 
     const { name, email, password, password2 } = formData;
+    const onChange = ( e ) => {
+        // e.preventDefault();
+        setForm( {
+            ...formData,
+            [ e.target.name ]: e.target.value,
+        } );
+    };
 
     const onSubmit = async ( e ) => {
         e.preventDefault();
@@ -66,21 +70,54 @@ const SignUp = ( props ) => {
                     }}>
 
                     <Grid item sm={12} className='marginauto'>
-                        <TextField fullWidth id="firstName" name="firstName" size="small" label="First Name" variant="outlined" placeholder="Enter your First name " />
-                    </Grid>
-                    <Grid item sm={12} className='marginauto'>
-                        <TextField fullWidth id="lastName" name="lastName" size="small" label="Last Name" variant="outlined" placeholder="Enter your Last name" />
-                    </Grid>
-                    <Grid item sm={12} className='marginauto'>
-                        <TextField fullWidth id="email" name="email" size="small" label="Email" variant="outlined" placeholder="Enter your email" />
+                        <TextField fullWidth id="username"
+                            value={name}
+                            onChange={( e ) => {
+                                onChange( e );
+                            }}
+                            name="username" size="small" label="First Name" variant="outlined" placeholder="Enter your First name " />
                     </Grid>
 
                     <Grid item sm={12} className='marginauto'>
-                        <TextField id="password" label='Password' size="small" name="password" placeholder='Create a password' type='password' fullWidth />
+                        <TextField fullWidth id="email"
+                            name="email"
+                            value={email}
+                            onChange={( e ) => {
+                                onChange( e );
+                            }}
 
+                            size="small" label="Email" variant="outlined" placeholder="Enter your email" />
+                    </Grid>
+
+                    <Grid item sm={12} className='marginauto'>
+                        <TextField id="password" label='Password'
+                            value={password}
+                            onChange={( e ) => {
+                                onChange( e );
+                            }}
+
+                            size="small" name="password" placeholder='Create a password' type='password' fullWidth />
+
+                    </Grid>
+                    <Grid item sm={12} className='marginauto'>
+                        <TextField
+                            size='small'
+                            variant='outlined'
+                            type='password'
+                            placeholder='Confirm Password'
+                            name='password2'
+                            minLength='6'
+                            value={password2}
+                            onChange={( e ) => {
+                                onChange( e );
+                            }}
+                            fullWidth
+                        />
                     </Grid>
                     <Grid item sm={12} minWidth={250}>
-                        <Button type='submit' color='primary' variant="contained" fullWidth>Get started</Button>
+                        <Button type='submit' color='primary' variant="contained"
+                            value='Register'
+                            fullWidth>Get started</Button>
                     </Grid>
 
 
@@ -110,7 +147,7 @@ const SignUp = ( props ) => {
 };
 
 
-Register.propTypes = {
+SignUp.propTypes = {
     setAlert: PropTypes.func.isRequired,
     register: PropTypes.func.isRequired,
     isAuth: PropTypes.bool,
