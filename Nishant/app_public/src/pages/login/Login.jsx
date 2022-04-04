@@ -1,8 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import './login.css';
 import axios from 'axios';
 import { GoogleLogin } from 'react-google-login';
+
+// Actions
+import { login, skipLogin } from '../../actions/auth';
+import { setAlert, removeAlert } from '../../actions/alert';
+// Files
+import Alert from '../../components/Alert';
 // MUI
 import {
     Grid,
@@ -14,59 +22,37 @@ import {
 
 
 
-const Login = () => {
+const Login = ( props ) => {
 
     // event handeler
+    const [ formData, setForm ] = useState( {
+        email: '',
+        password: '',
+    } );
 
-    function onSubmit() {
-        var emailValue = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
+    const { email, password } = formData;
 
-
-
-        axios.get('http://localhost:4000/app/signin', {
-            params: {
-                email: emailValue
-            }
-        }).then(response => {
-            if (Object.keys(response.data).length) {
-
-                if (response.data.password === password) {
-                    console.log("login success");
-                    //navigate to another page.
-                    window.location = '/user';
-
-                } else {
-                    console.log("login unsuccess");
-                }
-            } else {
-                console.log("email not found");
-            }
-        });
-
-
-    }
-    const responseGoogle = (response) => {
-        console.log(response.profileObj.email);
-
-
-        axios({
-            method: "POST",
-            url: "http://localhost:4000/api/signin",
-            data: { tokenId: response.tokenId }
-        }).then(response => {
-            console.log("google login success", response);
-        });
-
-        //navigate to another page.
-        //   window.location = '/user';
-
+    const onChange = ( e ) => {
+        // e.preventDefault();
+        setForm( {
+            ...formData,
+            [ e.target.name ]: e.target.value,
+        } );
     };
+
+    const onSubmit = async ( e ) => {
+        e.preventDefault();
+        props.login( email, password );
+    };
+
+    // If already auth, redirect to dashboard
+    if ( props.isAuthenticated ) {
+        return <Navigate to='/' />;
+    }
 
 
 
     return (
-
 
         <Grid className="logInform">
             <Grid item container xs={4} className="logInform" spacing={2} width={600} minWidth={300} >
@@ -78,33 +64,50 @@ const Login = () => {
                 <Grid item sm={12}>
                     <p>Welcome back! Please enter your details.</p>
                 </Grid>
-                <Grid item sm={12} className='marginauto'>
-                    <TextField fullWidth id="email" size="small" label="Email" variant="outlined" placeholder="Please enter your email" />
-                </Grid>
-                <Grid item sm={12} className='marginauto'>
-                    <TextField label='Password' id="password" size="small" placeholder='Enter password' type='password' fullWidth />
+                <Alert />
 
-                </Grid>
-                <Grid item sm={12} className='rememberstyle'>
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                name="checkedB"
-                                color="primary"
-                            />
-                        }
-                        label="Remember me"
-                    />
-                    <Link to="#" >
-                        Forgot password?
-                    </Link>
-                </Grid>
-                <Grid item sm={12} minWidth={250}>
-                    <Button type='submit' onClick={() => onSubmit()} color='primary' variant="contained" fullWidth>Log in</Button>
-                </Grid>
+                <form onSubmit={( e ) => {
+                    onSubmit( e );
+                }}>
+                    <Grid item sm={12} className='marginauto'>
+                        <TextField fullWidth id="email"
+                            name='email'
+                            value={email}
+                            onChange={( e ) => {
+                                onChange( e );
+                            }}
+                            size="small" label="Email" variant="outlined" placeholder="Please enter your email" />
+                    </Grid>
+                    <Grid item sm={12} className='marginauto'>
+                        <TextField label='Password'
+                            value={password}
+                            onChange={( e ) => {
+                                onChange( e );
+                            }}
+                            id="password" size="small" placeholder='Enter password' name='password' type='password' fullWidth />
+
+                    </Grid>
+                    <Grid item sm={12} className='rememberstyle'>
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    name="checkedB"
+                                    color="primary"
+                                />
+                            }
+                            label="Remember me"
+                        />
+                        <Link to="#" >
+                            Forgot password?
+                        </Link>
+                    </Grid>
+                    <Grid item sm={12} minWidth={250}>
+                        <Button type='submit' color='primary' variant="contained" fullWidth>Log in</Button>
+                    </Grid>
+                </form>
 
 
-                <Grid item sm={12}>
+                {/*  <Grid item sm={12}>
 
                     <GoogleLogin
                         clientId="188636961924-aqg9ristkvg8mhba6hj8dpd3g7rqt0vc.apps.googleusercontent.com"
@@ -115,7 +118,7 @@ const Login = () => {
                     />
 
 
-                </Grid>
+                </Grid> */}
 
                 <Grid item sm={12}>
                     Don't have an account? &nbsp;
@@ -128,5 +131,10 @@ const Login = () => {
 
     );
 };
+const mapStateToProps = ( state ) => ( {
+    isAuthenticated: state.auth.isAuthenticated,
+    loading: state.auth.loading,
+    alerts: state.alert,
+} );
 
-export default Login;
+export default connect( mapStateToProps, { login, skipLogin, setAlert, removeAlert } )( Login );

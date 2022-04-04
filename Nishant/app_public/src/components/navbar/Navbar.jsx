@@ -23,7 +23,7 @@ const Navbar = () => {
                             <ul className="navbar-nav me-auto justify-content-center mb-md-0">
                                 <li className='nav-item'><Link to="/" className="text-decoration-none px-2 link-dark">Home</Link></li>
                                 <li className='nav-item'><Link to="/discover" className="text-decoration-none px-2 link-dark">Discover</Link></li>
-                                <li className='nav-item'><Link to="/about" className="text-decoration-none px-2 link-dark">About</Link></li>
+                                <li className='nav-item'><Link to="/user" className="text-decoration-none px-2 link-dark">Dashboard</Link></li>
                             </ul>
                         </div>
 

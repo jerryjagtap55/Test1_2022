@@ -1,50 +1,104 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './card.css';
-import card_img from '../../assets/hero1.png'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+// Actions
+import { loadAdImage, setImageLoadingStatus, loadAdDetails } from '../../actions/ad';
+// Files
+import { secondsToHms } from '../utils/secondsToHms';
 
-const Card = () => {
+
+
+const Card = ( props ) => {
+
+
+  const navigate = useNavigate();
+
+  const handleCardClick = ( e ) => {
+    navigate( `/discover/${ props.ad._id }` );
+  };
+
+  // Auction status based on the ad-details
+  const updateAuctionStatus = ( ad ) => {
+    if ( ad.sold ) {
+      return 'Sold';
+    } else if ( ad.auctionEnded ) {
+      return 'Ended, not-sold';
+    } else if ( !ad.auctionStarted ) {
+      return 'Upcoming';
+    } else {
+      return 'Ongoing';
+    }
+  };
+
+  const getTimeRemaining = () => {
+    return secondsToHms( props.ad.timer );
+  };
+
+  const getUTCDate = ( dt ) => {
+    let isodt = new Date( dt );
+    return isodt.toDateString();
+  };
+
+
   return (
     <>
+
       <div className='text-start'>
         <div className="card mb-3 card-test ">
 
           <div className="card-body row">
             <div className="col-md-7 card_img-holder">
-              <img src={card_img} className="img-fluid rounded-start card-img" alt="Card" />
+              <img src={props.ad.image}
+                className="img-fluid rounded-start card-img" alt="Card" />
             </div>
             <div className="col-md-5">
               <div>
-                <h4 className='card-title'>Card Title</h4>
+                <h4 className='card-title'>{props.ad.productName}</h4>
                 <h6 className='card-subtitle mb-2 text-muted'>
-                  by User
+                  {props.ad.owner.username}
                 </h6>
-                <p className="card-text small">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p className="card-text small">
+                  {props.ad.description}
+                </p>
 
-                <Link to="/product" className="btn btn-primary mb-4">Check it out!</Link>
+                <a onClick={( e ) => {
+                  handleCardClick( e );
+                }}> <button className="btn btn-primary mb-4">Check it out!
+                  </button>
+                </a>
 
                 <ul className="list-group list-group-flush">
-                  <li className="list-group-item">1st Bid!</li>
-                  <li className="list-group-item">Current Bid!</li>
-                  <li className="list-group-item"></li>
+                  <li className="list-group-item">Total Bid: {props.ad.bids.length}</li>
+                  <li className="list-group-item">Current Bid: {props.highestBid}</li>
+                  <li className="list-group-item">Status: {updateAuctionStatus( props.ad )}
+                  </li>
                 </ul>
 
                 <p className='card-text lead text-muted my-4'>
-                  Timer:  1Day  20hrs  10mins
+                  Timer:  {getTimeRemaining()}
                 </p>
               </div>
             </div>
           </div>
 
           <div className="card-footer text-muted small">
-            2 days ago
+            Posted on: {getUTCDate( props.ad.createdAt )}
           </div>
         </div>
 
       </div>
+
     </>
 
-  )
-}
+  );
+};
+const mapStateToProps = ( state ) => ( {
+  adDetails: state.ad.adDetails,
+} );
 
-export default Card
+export default connect( mapStateToProps, {
+  loadAdDetails,
+  loadAdImage,
+  setImageLoadingStatus,
+} )( Card );

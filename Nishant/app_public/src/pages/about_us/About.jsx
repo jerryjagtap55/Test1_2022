@@ -7,4 +7,11 @@ const About = () => {
     )
 }
 
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    loading: state.auth.loading,
+    alerts: state.alert,
+  });
+  
+
 export default About

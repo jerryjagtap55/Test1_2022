@@ -1,8 +1,9 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Navigate } from 'react-router-dom';
 import './signup.css';
-import axios from 'axios';
-import { GoogleLogin } from 'react-google-login';
 
 // MUI
 import {
@@ -11,44 +12,46 @@ import {
     Button,
 } from '@mui/material';
 
-const SignUp = () => {
-    function onSubmit () {
-        var firstName = document.getElementById( 'firstName' ).value;
-        var lastName = document.getElementById( 'lastName' ).value;
-        var email = document.getElementById( 'email' ).value;
-        var password = document.getElementById( 'password' ).value;
-
-        const registered = {
-            firstName,
-            lastName,
-            email,
-            password
-        };
-
-        axios.post( "http://localhost:4000/app/signup", registered )
-            .then( response => console.log( response.data ) );
-
-        //navigate to another page.
-        window.location = './login';
+// Actions
+import { setAlert } from '../../actions/alert';
+import { removeAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
+// Files
 
 
-    }
-    const responseGoogle = ( response ) => {
-        console.log( response.profileObj.email );
 
+const SignUp = ( props ) => {
 
-        axios( {
-            method: "POST",
-            url: "http://localhost:4000/api/signup",
-            data: { tokenId: response.tokenId }
-        } ).then( response => {
-            console.log( "google login success", response );
+    const [ formData, setForm ] = useState( {
+        name: '',
+        email: '',
+        password: '',
+        password2: '',
+    } );
+
+    const { name, email, password, password2 } = formData;
+    const onChange = ( e ) => {
+        // e.preventDefault();
+        setForm( {
+            ...formData,
+            [ e.target.name ]: e.target.value,
         } );
-
-        //navigate to another page.
-        window.location = '/user';
-
     };
+
+    const onSubmit = async ( e ) => {
+        e.preventDefault();
+        if ( password !== password2 ) {
+            props.setAlert( 'Passwords do not match', 'error' );
+        } else {
+            props.register( { name, email, password } );
+        }
+    };
+
+    // If already auth, redirect to dashboard
+    if ( props.isAuth ) {
+        return <Navigate to='/' />;
+    }
+
     return (
         <Grid className="logInform"  >
             <Grid item container xs={4} className="logInform" spacing={2} width={600} minWidth={300}>
@@ -60,26 +63,68 @@ const SignUp = () => {
                 <Grid item sm={12}>
                     <p>Start your journey!</p>
                 </Grid>
-                <Grid item sm={12} className='marginauto'>
-                    <TextField fullWidth id="firstName" name="firstName" size="small" label="First Name" variant="outlined" placeholder="Enter your First name " />
-                </Grid>
-                <Grid item sm={12} className='marginauto'>
-                    <TextField fullWidth id="lastName" name="lastName" size="small" label="Last Name" variant="outlined" placeholder="Enter your Last name" />
-                </Grid>
-                <Grid item sm={12} className='marginauto'>
-                    <TextField fullWidth id="email" name="email" size="small" label="Email" variant="outlined" placeholder="Enter your email" />
-                </Grid>
+                <form
 
-                <Grid item sm={12} className='marginauto'>
-                    <TextField id="password" label='Password' size="small" name="password" placeholder='Create a password' type='password' fullWidth />
+                    onSubmit={( e ) => {
+                        onSubmit( e );
+                    }}>
 
-                </Grid>
-                <Grid item sm={12} minWidth={250}>
-                    <Button type='submit' onClick={() => onSubmit()} color='primary' variant="contained" fullWidth>Get started</Button>
-                </Grid>
+                    <Grid item sm={12} className='marginauto'>
+                        <TextField fullWidth id="username"
+                            value={name}
+                            onChange={( e ) => {
+                                onChange( e );
+                            }}
+                            name="username" size="small" label="First Name" variant="outlined" placeholder="Enter your First name " />
+                    </Grid>
+
+                    <Grid item sm={12} className='marginauto'>
+                        <TextField fullWidth id="email"
+                            name="email"
+                            value={email}
+                            onChange={( e ) => {
+                                onChange( e );
+                            }}
+
+                            size="small" label="Email" variant="outlined" placeholder="Enter your email" />
+                    </Grid>
+
+                    <Grid item sm={12} className='marginauto'>
+                        <TextField id="password" label='Password'
+                            value={password}
+                            onChange={( e ) => {
+                                onChange( e );
+                            }}
+
+                            size="small" name="password" placeholder='Create a password' type='password' fullWidth />
+
+                    </Grid>
+                    <Grid item sm={12} className='marginauto'>
+                        <TextField
+                            size='small'
+                            variant='outlined'
+                            type='password'
+                            placeholder='Confirm Password'
+                            name='password2'
+                            minLength='6'
+                            value={password2}
+                            onChange={( e ) => {
+                                onChange( e );
+                            }}
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item sm={12} minWidth={250}>
+                        <Button type='submit' color='primary' variant="contained"
+                            value='Register'
+                            fullWidth>Get started</Button>
+                    </Grid>
 
 
-                <Grid item sm={12}>
+                </form>
+
+
+                {/* <Grid item sm={12}>
                     <GoogleLogin
                         clientId="188636961924-aqg9ristkvg8mhba6hj8dpd3g7rqt0vc.apps.googleusercontent.com"
                         buttonText="Sign up with google"
@@ -87,7 +132,7 @@ const SignUp = () => {
                         onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
                     />
-                </Grid>
+                </Grid> */}
 
                 <Grid item sm={12}>
                     Already have an account? &nbsp;
@@ -102,10 +147,18 @@ const SignUp = () => {
 };
 
 
+SignUp.propTypes = {
+    setAlert: PropTypes.func.isRequired,
+    register: PropTypes.func.isRequired,
+    isAuth: PropTypes.bool,
+};
+
+const mapStateToProps = ( state ) => ( {
+    isAuth: state.auth.isAuthenticated,
+    loading: state.auth.loading,
+    alerts: state.alert,
+} );
 
 
 
-
-
-
-export default SignUp;
+export default connect( mapStateToProps, { setAlert, removeAlert, register } )( SignUp );
