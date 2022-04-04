@@ -26,4 +26,11 @@ const Sell = () => {
     );
 };
 
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    loading: state.auth.loading,
+    alerts: state.alert,
+  });
+  
+
 export default Sell;
