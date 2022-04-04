@@ -23,7 +23,7 @@ const Sell = () => {
 
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Sell
+export default Sell;
