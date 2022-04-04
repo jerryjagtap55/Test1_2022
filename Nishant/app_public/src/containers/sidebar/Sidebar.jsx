@@ -1,5 +1,5 @@
 import React from 'react';
-import { logout } from '../actions/auth';
+import { logout } from '../../actions/auth';
 import { Link } from 'react-router-dom';
 import './sidebar.css';
 
@@ -38,7 +38,7 @@ const Sidebar = () => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Sidebar
+export default Sidebar;

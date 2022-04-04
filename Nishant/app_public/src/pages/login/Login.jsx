@@ -7,10 +7,10 @@ import axios from 'axios';
 import { GoogleLogin } from 'react-google-login';
 
 // Actions
-import { login, skipLogin } from '../actions/auth';
-import { setAlert, removeAlert } from '../actions/alert';
+import { login, skipLogin } from '../../actions/auth';
+import { setAlert, removeAlert } from '../../actions/alert';
 // Files
-import Alert from './Alert';
+import Alert from '../../components/Alert';
 // MUI
 import {
     Grid,
@@ -22,31 +22,31 @@ import {
 
 
 
-const Login = (props) => {
+const Login = ( props ) => {
 
     // event handeler
-    const [formData, setForm] = useState({
+    const [ formData, setForm ] = useState( {
         email: '',
         password: '',
-    });
+    } );
 
     const { email, password } = formData;
 
-    const onChange = (e) => {
+    const onChange = ( e ) => {
         // e.preventDefault();
-        setForm({
+        setForm( {
             ...formData,
-            [e.target.name]: e.target.value,
-        });
+            [ e.target.name ]: e.target.value,
+        } );
     };
 
-    const onSubmit = async (e) => {
+    const onSubmit = async ( e ) => {
         e.preventDefault();
-        props.login(email, password);
+        props.login( email, password );
     };
 
     // If already auth, redirect to dashboard
-    if (props.isAuthenticated) {
+    if ( props.isAuthenticated ) {
         return <Navigate to='/' />;
     }
 
@@ -66,25 +66,25 @@ const Login = (props) => {
                 </Grid>
                 <Alert />
 
-                <form onSubmit={(e) => {
-                    onSubmit(e);
+                <form onSubmit={( e ) => {
+                    onSubmit( e );
                 }}>
                     <Grid item sm={12} className='marginauto'>
                         <TextField fullWidth id="email"
-                        name='email'
-                        value={email}
-                        onChange={(e) => {
-                          onChange(e);
-                        }}
-                         size="small" label="Email" variant="outlined" placeholder="Please enter your email" />
+                            name='email'
+                            value={email}
+                            onChange={( e ) => {
+                                onChange( e );
+                            }}
+                            size="small" label="Email" variant="outlined" placeholder="Please enter your email" />
                     </Grid>
                     <Grid item sm={12} className='marginauto'>
                         <TextField label='Password'
-                                        value={password}
-                                        onChange={(e) => {
-                                          onChange(e);
-                                        }}
-                         id="password" size="small" placeholder='Enter password' name='password' type='password' fullWidth />
+                            value={password}
+                            onChange={( e ) => {
+                                onChange( e );
+                            }}
+                            id="password" size="small" placeholder='Enter password' name='password' type='password' fullWidth />
 
                     </Grid>
                     <Grid item sm={12} className='rememberstyle'>
@@ -107,7 +107,7 @@ const Login = (props) => {
                 </form>
 
 
-                <Grid item sm={12}>
+                {/*  <Grid item sm={12}>
 
                     <GoogleLogin
                         clientId="188636961924-aqg9ristkvg8mhba6hj8dpd3g7rqt0vc.apps.googleusercontent.com"
@@ -118,7 +118,7 @@ const Login = (props) => {
                     />
 
 
-                </Grid>
+                </Grid> */}
 
                 <Grid item sm={12}>
                     Don't have an account? &nbsp;
@@ -131,10 +131,10 @@ const Login = (props) => {
 
     );
 };
-const mapStateToProps = (state) => ({
+const mapStateToProps = ( state ) => ( {
     isAuthenticated: state.auth.isAuthenticated,
     loading: state.auth.loading,
     alerts: state.alert,
-  });
-  
-export default connect(mapStateToProps, { login, skipLogin, setAlert, removeAlert })(Login);
+} );
+
+export default connect( mapStateToProps, { login, skipLogin, setAlert, removeAlert } )( Login );

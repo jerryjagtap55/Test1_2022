@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { Product_form, Sidebar } from '../../containers';
-import Alert from '../../components/Alert';
-import LoadingDisplay from './LoadingDisplay';
 // Actions
 import { postAd } from '../../actions/ad';
 import { setAlert, clearAlerts } from '../../actions/alert';
@@ -224,9 +221,8 @@ const Product_form = ( props ) => {
                 </div>
  */}
 
-                {uploading ? (
-                    <LoadingDisplay />
-                ) : (
+                {uploading(
+
                     <div className='rows'>
                         <div className='col-md-4 mb-3 mx-3'>
                             <label htmlFor="image">

@@ -15,36 +15,36 @@ import {
 } from '@mui/material';
 
 // Actions
-import { setAlert } from '../actions/alert';
-import { removeAlert } from '../actions/alert';
-import { register } from '../actions/auth';
+import { setAlert } from '../../actions/alert';
+import { removeAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 // Files
-import Spinner from './Spinner';
-import Alert from './Alert';
+
+import Alert from '../../components/Alert';
 
 
-const SignUp = (props) => {
+const SignUp = ( props ) => {
 
-    const [formData, setForm] = useState({
+    const [ formData, setForm ] = useState( {
         name: '',
         email: '',
         password: '',
         password2: '',
-    });
+    } );
 
     const { name, email, password, password2 } = formData;
 
-    const onSubmit = async (e) => {
+    const onSubmit = async ( e ) => {
         e.preventDefault();
-        if (password !== password2) {
-            props.setAlert('Passwords do not match', 'error');
+        if ( password !== password2 ) {
+            props.setAlert( 'Passwords do not match', 'error' );
         } else {
-            props.register({ name, email, password });
+            props.register( { name, email, password } );
         }
     };
 
     // If already auth, redirect to dashboard
-    if (props.isAuth) {
+    if ( props.isAuth ) {
         return <Navigate to='/' />;
     }
 
@@ -61,8 +61,8 @@ const SignUp = (props) => {
                 </Grid>
                 <form
 
-                    onSubmit={(e) => {
-                        onSubmit(e);
+                    onSubmit={( e ) => {
+                        onSubmit( e );
                     }}>
 
                     <Grid item sm={12} className='marginauto'>
@@ -87,7 +87,7 @@ const SignUp = (props) => {
                 </form>
 
 
-                <Grid item sm={12}>
+                {/* <Grid item sm={12}>
                     <GoogleLogin
                         clientId="188636961924-aqg9ristkvg8mhba6hj8dpd3g7rqt0vc.apps.googleusercontent.com"
                         buttonText="Sign up with google"
@@ -95,7 +95,7 @@ const SignUp = (props) => {
                         onFailure={responseGoogle}
                         cookiePolicy={'single_host_origin'}
                     />
-                </Grid>
+                </Grid> */}
 
                 <Grid item sm={12}>
                     Already have an account? &nbsp;
@@ -114,14 +114,14 @@ Register.propTypes = {
     setAlert: PropTypes.func.isRequired,
     register: PropTypes.func.isRequired,
     isAuth: PropTypes.bool,
-  };
-  
-  const mapStateToProps = (state) => ({
+};
+
+const mapStateToProps = ( state ) => ( {
     isAuth: state.auth.isAuthenticated,
     loading: state.auth.loading,
     alerts: state.alert,
-  });
-  
+} );
 
 
-export default connect(mapStateToProps, { setAlert, removeAlert, register })(SignUp);
+
+export default connect( mapStateToProps, { setAlert, removeAlert, register } )( SignUp );

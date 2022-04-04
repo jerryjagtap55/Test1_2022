@@ -3,28 +3,28 @@ import { connect } from 'react-redux';
 import './card.css';
 import { useNavigate } from 'react-router-dom';
 // Actions
-import { loadad, loadAdImage, setImageLoadingStatus } from '../actions/ad';
+import { loadad, loadAdImage, setImageLoadingStatus } from '../../actions/ad';
 // Files
-import { secondsToHmsShort } from '../utils/secondsToHms';
+import { secondsToHmsShort } from '../../utils/secondsToHms';
 
 
 
-const Card = (props) => {
+const Card = ( props ) => {
 
 
   const navigate = useNavigate();
 
-  const handleCardClick = (e) => {
-    navigate(`/discover/${props.ad._id}`);
+  const handleCardClick = ( e ) => {
+    navigate( `/discover/${ props.ad._id }` );
   };
 
   // Auction status based on the ad-details
-  const updateAuctionStatus = (ad) => {
-    if (ad.sold) {
+  const updateAuctionStatus = ( ad ) => {
+    if ( ad.sold ) {
       return 'Sold';
-    } else if (ad.auctionEnded) {
+    } else if ( ad.auctionEnded ) {
       return 'Ended, not-sold';
-    } else if (!ad.auctionStarted) {
+    } else if ( !ad.auctionStarted ) {
       return 'Upcoming';
     } else {
       return 'Ongoing';
@@ -52,8 +52,8 @@ const Card = (props) => {
                   {props.ad.description}
                 </p>
 
-                <a onClick={(e) => {
-                  handleCardClick(e);
+                <a onClick={( e ) => {
+                  handleCardClick( e );
                 }} className="btn btn-primary mb-4">Check it out!</a>
 
                 <ul className="list-group list-group-flush">
@@ -70,7 +70,7 @@ const Card = (props) => {
           </div>
 
           <div className="card-footer text-muted small">
-          Posted on: {getUTCDate(props.ad.createdAt)}
+            Posted on: {getUTCDate( props.ad.createdAt )}
           </div>
         </div>
 
@@ -78,14 +78,14 @@ const Card = (props) => {
 
     </>
 
-  )
-}
-const mapStateToProps = (state) => ({
+  );
+};
+const mapStateToProps = ( state ) => ( {
   adDetails: state.ad.adDetails,
-});
+} );
 
-export default connect(mapStateToProps, {
+export default connect( mapStateToProps, {
   loadAdDetails,
   loadAdImage,
   setImageLoadingStatus,
-})(Card)
+} )( Card );
