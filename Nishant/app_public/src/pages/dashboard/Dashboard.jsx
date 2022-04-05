@@ -13,8 +13,14 @@ import {
     TableBody,
     Button,
 } from '@mui/material';
+import {
+    paginationStyle,
+    purchasedListContainerStyle,
+    purchasedListTableStyle,
+} from './dashStyle';
 
-const Dashboard = ( { ads } ) => {
+const Dashboard = ( props ) => {
+    var ads = props.purchased;
     const navigate = useNavigate();
     const [ pageNumber, setPageNumber ] = useState( 1 );
     const [ adPerPage ] = useState( 5 );
