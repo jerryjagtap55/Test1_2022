@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { logout } from '../../actions/auth';
 import { Link } from 'react-router-dom';
 import './sidebar.css';
 
@@ -12,30 +13,32 @@ const Sidebar = () => {
                     <ul className='nav nav-pills flex-column mb-auto mx-4'>
 
                         <li className='nav-item mb-2'>
-                           <Link to="/user" className="align-items-center text-white text-decoration-none">
+                            <Link to="/user" className="align-items-center text-white text-decoration-none">
                                 Orders
                             </Link>
                         </li>
                         <li className='nav-item mb-2'>
-                           <Link to="/sell" className="align-items-center text-white text-decoration-none">
-                            Sell an Item
+                            <Link to="/postad" className="align-items-center text-white text-decoration-none">
+                                Sell an Item
                             </Link>
                         </li>
                         <li className='nav-item mb-2'>
-                           <Link to="/checkout" className="align-items-center text-white text-decoration-none">
-                            Checkout
+                            <Link to="/checkout" className="align-items-center text-white text-decoration-none">
+                                Checkout
                             </Link>
                         </li>
                         <li className='nav-item mb-2'>
-                           <Link to="/login" className="align-items-center text-white text-decoration-none">
-                            Sign out
+                            <Link to="/login"
+                                onClick={props.logout}
+                                className="align-items-center text-white text-decoration-none">
+                                Sign out
                             </Link>
                         </li>
                     </ul>
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Sidebar
+export default Sidebar;
